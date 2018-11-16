@@ -1,0 +1,41 @@
+#include <SoftwareSerial.h>
+
+SoftwareSerial BTserial(10, 11); // RX | TX
+
+void setup() {
+
+   pinMode(13,INPUT);
+   BTserial.begin(9600);
+   Serial.begin(9600);
+   }
+
+void loop() {
+  
+  int valred;
+  int count;
+  int count2=0;
+  
+  valred = digitalRead(13);
+
+if (valred==1)
+++count;
+
+if (count==10)
+{
+  ++count2;
+
+BTserial.print("you have");
+
+BTserial.print("completed");
+
+BTserial.print(count2);
+
+BTserial.print(" meter.");
+
+count=0;
+}
+BTserial.print("you fail");
+
+
+delay(10);
+}
